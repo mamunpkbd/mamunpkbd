@@ -2273,7 +2273,6 @@
       <div class="profile reveal">
 
         <!-- ====== EKHANE TOMAR REAL PHOTO BOSHAO ====== -->
-        <!-- Option 1: Same folder e "profile.jpg" rekhe nicher line use koro -->
         <img
           src="profile.jpg"
           alt="Mamun Hossain — Digital Marketing Expert"
@@ -3572,12 +3571,6 @@
   
     /* SERVICE POPUP */
 
-    /*
-      NIJER REAL DOCUMENT BOSHANOR JONNO:
-      protita doc-er "url" e Google Drive / PDF / Looker Studio link boshao.
-      url faka thakle "Coming soon" dekhabe.
-    */
-
     const SERVICES = {
       meta: {
         title: "Meta Ads",
@@ -3943,10 +3936,19 @@
 
   <script>
 
-    /* PORTFOLIO POPUP
-       Protita project-e 4ta position (slot) ache.
-       Nijer screenshot-er "img" e image link, ar "url" e document/live link boshao.
-       Dutoi khali thakle placeholder dekhabe. Slot barano/komano jay (3-4ta rakho). */
+    /* PORTFOLIO POPUP */
+
+    const GITHUB_BASE = "https://raw.githubusercontent.com/mamunpkbd/mamunpkbd/main/";
+    
+    // ১ থেকে ১৬ পর্যন্ত Overview ইমেজের লিংক
+    const overviewImgs = Array.from({ length: 16 }, (_, i) => 
+      `${GITHUB_BASE}ecom_data_analysis_overview_${String(i + 1).padStart(2, '0')}.jpg`
+    );
+
+    // ১ থেকে ১৫ পর্যন্ত Decision ইমেজের লিংক (এখানে decison ব্যবহার করা হয়েছে)
+    const decisionImgs = Array.from({ length: 15 }, (_, i) => 
+      `${GITHUB_BASE}ecom_data_analysis_decison_${String(i + 1).padStart(2, '0')}.jpg`
+    );
 
     const PROJECTS = {
       1: { tag: "Meta Ads", title: "Fashion Brand Retargeting",
@@ -3967,45 +3969,14 @@
       3: { tag: "Analytics", title: "SaaS Funnel Tracking",
            intro: "Custom events and conversion tracking for a SaaS signup flow.",
            groups: [
-             { name: "Data Analysis Overview",
-               // 15ta image-er link ekhane boshao (protita "" er bhetore link)
-               images: [
-               "",   // 1
-               "",   // 2
-               "",   // 3
-               "",   // 4
-               "",   // 5
-               "",   // 6
-               "",   // 7
-               "",   // 8
-               "",   // 9
-               "",   // 10
-               "",   // 11
-               "",   // 12
-               "",   // 13
-               "",   // 14
-               "",   // 15
-               ] },
-             { name: "Data Analysis Decision",
-               // 16ta image-er link ekhane boshao
-               images: [
-               "",   // 1
-               "",   // 2
-               "",   // 3
-               "",   // 4
-               "",   // 5
-               "",   // 6
-               "",   // 7
-               "",   // 8
-               "",   // 9
-               "",   // 10
-               "",   // 11
-               "",   // 12
-               "",   // 13
-               "",   // 14
-               "",   // 15
-               "",   // 16
-               ] }
+             { 
+               name: "Data Analysis Overview",
+               images: overviewImgs 
+             },
+             { 
+               name: "Data Analysis Decision",
+               images: decisionImgs
+             }
            ] },
       4: { tag: "E-commerce", title: "DTC Skincare Brand",
            intro: "Meta + Google Ads combined strategy with CAPI integration.",
@@ -4080,6 +4051,12 @@
               img.src = sl.img;
               img.alt = sl.label;
               img.loading = "lazy";
+              
+              // ইমেজ লোড না হলে "Image not found" দেখাবে
+              img.onerror = function() {
+                media.innerHTML = '<span style="font-size:12px; color:#d64545; font-weight:bold;">Image not found</span>';
+              };
+              
               media.appendChild(img);
             } else {
               media.textContent = "Add screenshot";
