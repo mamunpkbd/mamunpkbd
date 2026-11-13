@@ -31,13 +31,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Mamun Hossain — Digital Marketing Expert</title>
+  <title>Mamun Hossain — AI-Powered Digital Marketer</title>
 
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiMwNzExMWYiLz4KICA8dGV4dCB4PSIzMiIgeT0iNDMiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC13ZWlnaHQ9IjgwMCIgZm9udC1zaXplPSIzMCIgZmlsbD0iI2ZmZmZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TTwvdGV4dD4KICA8Y2lyY2xlIGN4PSI0NyIgY3k9IjQ3IiByPSI1IiBmaWxsPSIjYjdmZjVjIi8+Cjwvc3ZnPg==">
   <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiMwNzExMWYiLz4KICA8dGV4dCB4PSIzMiIgeT0iNDMiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC13ZWlnaHQ9IjgwMCIgZm9udC1zaXplPSIzMCIgZmlsbD0iI2ZmZmZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TTwvdGV4dD4KICA8Y2lyY2xlIGN4PSI0NyIgY3k9IjQ3IiByPSI1IiBmaWxsPSIjYjdmZjVjIi8+Cjwvc3ZnPg==">
 
   <meta name="description"
-        content="Mamun Hossain — Digital Marketing Expert specializing in Meta Ads, Google Ads, GA4, GTM, Meta Pixel and Conversion API." />
+        content="Mamun Hossain — AI-Powered Digital Marketer specializing in Meta Ads, Google Ads, GA4, GTM, Meta Pixel and Conversion API." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1572,7 +1572,7 @@
 
 
     /* =========================
-       SERVICE POPUP
+       SERVICE POPUP (ADDED)
     ========================= */
 
     .service { cursor: pointer; position: relative; }
@@ -1992,6 +1992,550 @@
       .slot-grid.many { grid-template-columns: repeat(2, 1fr); }
     }
 
+
+    /* SERVICES DROPDOWN (multi-select) */
+
+    #servicesField { position: relative; }
+
+    .msel { position: relative; }
+
+    .msel-btn {
+      width: 100%;
+      padding: 14px 40px 14px 16px;
+
+      font-family: inherit;
+      font-size: 15px;
+      color: var(--black);
+      text-align: left;
+
+      background: white url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1.5l5 5 5-5' fill='none' stroke='%23101419' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>") no-repeat right 16px center;
+      border: 1px solid #d9dfda;
+      border-radius: 12px;
+
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .msel-btn:focus,
+    .msel-btn[aria-expanded="true"] {
+      outline: none;
+      border-color: var(--green-dark);
+      box-shadow: 0 0 0 3px rgba(183,255,92,.35);
+    }
+
+    #servicesField.invalid .msel-btn { border-color: #d64545; }
+
+    .msel-list {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: calc(100% + 6px);
+      z-index: 30;
+
+      padding: 6px;
+
+      background: white;
+      border: 1px solid #c9d0ca;
+      border-radius: 12px;
+      box-shadow: 0 18px 40px rgba(7,17,31,.14);
+    }
+
+    .msel-list[hidden] { display: none; }
+
+    .msel-opt {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      padding: 11px 12px;
+
+      border-radius: 8px;
+
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    .msel-opt::before {
+      content: "";
+      flex-shrink: 0;
+      width: 16px;
+      height: 16px;
+
+      border: 1.5px solid #aab3ac;
+      border-radius: 4px;
+      background: white;
+    }
+
+    .msel-opt:hover,
+    .msel-opt:focus { background: #eef4ff; outline: none; }
+
+    .msel-opt[aria-selected="true"] { font-weight: 700; }
+
+    .msel-opt[aria-selected="true"]::before {
+      content: "\2713";
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-color: var(--navy);
+      background: var(--navy);
+      color: white;
+      font-size: 11px;
+      line-height: 1;
+    }
+
+
+    /* HERO LABEL ANIMATION */
+
+    .hero-label { min-height: 1.6em; }
+
+    .typed-caret {
+      display: inline-block;
+      width: 2px;
+      height: 1.1em;
+      margin-left: 3px;
+      background: var(--green-dark);
+      animation: caretBlink 1s steps(1) infinite;
+    }
+
+    @keyframes caretBlink { 50% { opacity: 0; } }
+
+    @media (prefers-reduced-motion: reduce) {
+      .typed-caret { animation: none; }
+    }
+
+
+    /* HERO LABEL — BOLDER */
+
+    .hero .hero-label {
+      font-family: "Manrope", sans-serif;
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      color: var(--navy);
+    }
+
+    .hero .hero-label::before {
+      width: 36px;
+      height: 3px;
+    }
+
+    .hero .typed-caret {
+      width: 3px;
+      height: 1.2em;
+    }
+
+    @media(max-width: 700px) {
+      .hero .hero-label { font-size: 14px; letter-spacing: 1.8px; }
+    }
+
+
+    /* =========================
+       MORE COLOR
+    ========================= */
+
+    :root {
+      --c-teal: #14c8b8;
+      --c-blue: #3b82f6;
+      --c-purple: #8b5cf6;
+      --c-orange: #ff8a3d;
+      --c-pink: #ff4d8d;
+      --c-yellow: #ffc933;
+      --grad-main: linear-gradient(90deg, #6bd400, #14c8b8 55%, #3b82f6);
+    }
+
+    /* section label line */
+    .label::before { background: var(--grad-main); height: 3px; border-radius: 3px; }
+
+    /* hero */
+    .hero {
+      background:
+        radial-gradient(circle at 92% 18%, rgba(183,255,92,.32), transparent 28%),
+        radial-gradient(circle at 8% 85%, rgba(59,130,246,.16), transparent 32%),
+        radial-gradient(circle at 55% 0%, rgba(139,92,246,.12), transparent 30%),
+        #f8faf7;
+    }
+
+    .hero h1 span {
+      background: var(--grad-main);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .btn-green {
+      background: linear-gradient(90deg, #b7ff5c, #5de8c6);
+    }
+
+    .btn-green:hover { background: linear-gradient(90deg, #a2f23f, #3fd9b4); }
+
+    .nav-cta { background: linear-gradient(90deg, #07111f, #1b3a6b); }
+
+    /* hero dashboard */
+    .metric:nth-child(1) strong { color: #b7ff5c; }
+    .metric:nth-child(2) strong { color: #5de8c6; }
+    .metric:nth-child(3) strong { color: #7db4ff; }
+    .metric:nth-child(4) strong { color: #ffb26b; }
+
+    .floating-card { border-top: 4px solid var(--c-teal); }
+
+    /* trust row */
+    .trust-row span:nth-child(1) { color: #3b82f6; }
+    .trust-row span:nth-child(2) { color: #14a85b; }
+    .trust-row span:nth-child(3) { color: #f08a00; }
+    .trust-row span:nth-child(4) { color: #2f6fe0; }
+    .trust-row span:nth-child(5) { color: #8b5cf6; }
+    .trust-row span:nth-child(6) { color: #e0457b; }
+
+    /* about stats */
+    .about-stat:nth-child(1) { border-top: 4px solid var(--c-orange); }
+    .about-stat:nth-child(2) { border-top: 4px solid var(--c-teal); }
+    .about-stat:nth-child(3) { border-top: 4px solid var(--c-purple); }
+    .about-stat:nth-child(1) strong { color: #e8731f; }
+    .about-stat:nth-child(2) strong { color: #0fa597; }
+    .about-stat:nth-child(3) strong { color: #7646e0; }
+
+    /* services */
+    .service { border-top: 3px solid transparent; }
+    .service:nth-child(1) { border-top-color: var(--c-blue); }
+    .service:nth-child(2) { border-top-color: var(--c-orange); }
+    .service:nth-child(3) { border-top-color: var(--c-teal); }
+    .service:nth-child(4) { border-top-color: var(--c-purple); }
+    .service:nth-child(5) { border-top-color: var(--c-pink); }
+    .service:nth-child(6) { border-top-color: var(--c-yellow); }
+
+    .service:nth-child(1) .service-number { color: #7db4ff; }
+    .service:nth-child(2) .service-number { color: #ffb26b; }
+    .service:nth-child(3) .service-number { color: #5de8c6; }
+    .service:nth-child(4) .service-number { color: #b9a0ff; }
+    .service:nth-child(5) .service-number { color: #ff8fb7; }
+    .service:nth-child(6) .service-number { color: #ffd966; }
+
+    .service:nth-child(1):hover { box-shadow: 0 18px 40px rgba(59,130,246,.25); }
+    .service:nth-child(2):hover { box-shadow: 0 18px 40px rgba(255,138,61,.25); }
+    .service:nth-child(3):hover { box-shadow: 0 18px 40px rgba(20,200,184,.25); }
+    .service:nth-child(4):hover { box-shadow: 0 18px 40px rgba(139,92,246,.25); }
+    .service:nth-child(5):hover { box-shadow: 0 18px 40px rgba(255,77,141,.25); }
+    .service:nth-child(6):hover { box-shadow: 0 18px 40px rgba(255,201,51,.25); }
+
+    /* result cards */
+    .result-card { border-top: 4px solid var(--c-teal); }
+    .result-card:nth-child(1) { border-top-color: var(--c-orange); }
+    .result-card:nth-child(2) { border-top-color: var(--c-blue); }
+    .result-card:nth-child(3) { border-top-color: var(--c-purple); }
+    .result-card:nth-child(4) { border-top-color: var(--c-teal); }
+    .result-card:nth-child(1) strong { color: #e8731f; }
+    .result-card:nth-child(2) strong { color: #2f6fe0; }
+    .result-card:nth-child(3) strong { color: #7646e0; }
+    .result-card:nth-child(4) strong { color: #0fa597; }
+
+    /* case studies */
+    .case-visual { background: linear-gradient(145deg, #0a1b33, #12335c); }
+    .case:nth-child(2) .case-visual { background: linear-gradient(145deg, #0b2a2a, #0f4d4a); }
+    .case:nth-child(3) .case-visual { background: linear-gradient(145deg, #1a1236, #3a2370); }
+
+    .bar { background: linear-gradient(to top, #14c8b8, #b7ff5c); opacity: .95; }
+
+    .case:nth-child(1) .case-tag { color: #2f6fe0; }
+    .case:nth-child(2) .case-tag { color: #0fa597; }
+    .case:nth-child(3) .case-tag { color: #7646e0; }
+
+    /* portfolio tags */
+    .portfolio-card:nth-child(1) .portfolio-tag { background: rgba(59,130,246,.12);  color: #2f6fe0; }
+    .portfolio-card:nth-child(2) .portfolio-tag { background: rgba(255,138,61,.14);  color: #d4691a; }
+    .portfolio-card:nth-child(3) .portfolio-tag { background: rgba(139,92,246,.12);  color: #7646e0; }
+    .portfolio-card:nth-child(4) .portfolio-tag { background: rgba(255,77,141,.12);  color: #d93a78; }
+    .portfolio-card:nth-child(5) .portfolio-tag { background: rgba(20,200,184,.14);  color: #0fa597; }
+    .portfolio-card:nth-child(6) .portfolio-tag { background: rgba(255,201,51,.2);   color: #b38600; }
+
+    .portfolio-thumb.t1 { background: linear-gradient(145deg,#2f6fe0,#07111f); }
+    .portfolio-thumb.t2 { background: linear-gradient(145deg,#e8731f,#3b1d07); }
+    .portfolio-thumb.t3 { background: linear-gradient(145deg,#7646e0,#1a0d3d); }
+    .portfolio-thumb.t4 { background: linear-gradient(145deg,#e0457b,#3d0d1f); }
+    .portfolio-thumb.t5 { background: linear-gradient(145deg,#0fa597,#062a27); }
+    .portfolio-thumb.t6 { background: linear-gradient(145deg,#d4a017,#3b2c05); }
+
+    /* process */
+    .process:nth-child(1) { border-top-color: var(--c-blue); }
+    .process:nth-child(2) { border-top-color: var(--c-purple); }
+    .process:nth-child(3) { border-top-color: var(--c-pink); }
+    .process:nth-child(4) { border-top-color: var(--c-orange); }
+    .process:nth-child(5) { border-top-color: var(--c-yellow); }
+    .process:nth-child(6) { border-top-color: var(--c-teal); }
+    .process:nth-child(1) span { color: #2f6fe0; }
+    .process:nth-child(2) span { color: #7646e0; }
+    .process:nth-child(3) span { color: #d93a78; }
+    .process:nth-child(4) span { color: #d4691a; }
+    .process:nth-child(5) span { color: #b38600; }
+    .process:nth-child(6) span { color: #0fa597; }
+
+    /* tools */
+    .tool { border-left: 4px solid var(--c-teal); }
+    .tool:nth-child(6n+1) { border-left-color: var(--c-blue); }
+    .tool:nth-child(6n+2) { border-left-color: var(--c-orange); }
+    .tool:nth-child(6n+3) { border-left-color: var(--c-teal); }
+    .tool:nth-child(6n+4) { border-left-color: var(--c-purple); }
+    .tool:nth-child(6n+5) { border-left-color: var(--c-pink); }
+    .tool:nth-child(6n+6) { border-left-color: var(--c-yellow); }
+
+    /* CTA */
+    .cta-section { background: linear-gradient(120deg, #b7ff5c 0%, #7ce8c0 55%, #7db4ff 100%); }
+    .cta-box p { color: #1f3a2a; }
+
+    /* contact tabs */
+    .contact-tab.active { background: linear-gradient(90deg, #07111f, #1b3a6b); }
+
+
+    /* PROFILE PHOTO — CIRCLE */
+
+    .profile {
+      width: 100%;
+      max-width: 440px;
+      aspect-ratio: 1 / 1;
+      min-height: 0;
+      margin: 0 auto 28px;
+      padding: 0;
+
+      border-radius: 50%;
+      overflow: visible;
+      justify-content: center;
+
+      box-shadow:
+        0 0 0 6px #ffffff,
+        0 0 0 10px #14c8b8,
+        0 0 0 14px rgba(183,255,92,.55),
+        0 30px 70px rgba(7,17,31,.22);
+    }
+
+    .profile-photo {
+      border-radius: 50%;
+    }
+
+    .profile::after {
+      border-radius: 50%;
+      background: linear-gradient(
+        to top,
+        rgba(7,17,31,.45) 0%,
+        rgba(7,17,31,0) 45%
+      );
+    }
+
+    .profile-info {
+      position: absolute;
+      left: 50%;
+      bottom: -26px;
+      transform: translateX(-50%);
+
+      width: 82%;
+      padding: 14px 20px;
+
+      text-align: center;
+
+      background: rgba(7,17,31,.86);
+      backdrop-filter: blur(10px);
+    }
+
+    @media(max-width: 700px) {
+      .profile { max-width: 320px; }
+    }
+
+
+    /* HERO MARKETING BACKGROUND */
+
+    .hero { position: relative; overflow: hidden; }
+
+    .hero > .container { position: relative; z-index: 1; }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .hb-grid {
+      position: absolute;
+      inset: 0;
+      -webkit-mask-image: radial-gradient(ellipse at 50% 40%, #000 25%, transparent 78%);
+      mask-image: radial-gradient(ellipse at 50% 40%, #000 25%, transparent 78%);
+    }
+
+    .hb-line {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 42%;
+      opacity: .9;
+    }
+
+    .hb-draw {
+      stroke-dasharray: 2600;
+      stroke-dashoffset: 2600;
+      animation: hbDraw 3.2s ease-out .4s forwards;
+    }
+
+    @keyframes hbDraw { to { stroke-dashoffset: 0; } }
+
+    .hb-icon {
+      position: absolute;
+      width: 54px;
+      height: 54px;
+      opacity: .55;
+      filter: drop-shadow(0 8px 14px rgba(7,17,31,.12));
+      animation: hbFloat 7s ease-in-out infinite;
+    }
+
+    .hb-i1 { top: 16%; left: 4%;  animation-delay: 0s; }
+    .hb-i2 { top: 70%; left: 8%;  animation-delay: -1.4s; width: 46px; height: 46px; }
+    .hb-i3 { top: 12%; left: 47%; animation-delay: -2.8s; }
+    .hb-i4 { top: 30%; right: 3%; animation-delay: -4.2s; width: 60px; height: 60px; }
+    .hb-i5 { top: 78%; left: 44%; animation-delay: -5.6s; }
+    .hb-i6 { top: 8%;  right: 14%; animation-delay: -3.5s; width: 44px; height: 44px; }
+    .hb-i7 { top: 58%; right: 6%;  animation-delay: -1s;  width: 60px; height: 60px; }
+
+    @keyframes hbFloat {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50%      { transform: translateY(-18px) rotate(6deg); }
+    }
+
+    @media(max-width: 700px) {
+      .hb-icon { opacity: .3; }
+      .hb-i3, .hb-i5, .hb-i6 { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hb-icon { animation: none; }
+      .hb-draw { animation: none; stroke-dashoffset: 0; }
+    }
+
+
+    /* =========================
+       BLOG
+    ========================= */
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .blog-card {
+      display: flex;
+      flex-direction: column;
+
+      overflow: hidden;
+
+      background: white;
+      border: 1px solid var(--light-border);
+      border-radius: 22px;
+
+      transition: .3s;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 25px 50px rgba(7,17,31,.1);
+    }
+
+    .blog-thumb {
+      position: relative;
+      height: 170px;
+
+      display: flex;
+      align-items: flex-end;
+
+      padding: 18px;
+
+      color: white;
+      overflow: hidden;
+    }
+
+    .blog-thumb::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .35;
+      background: repeating-linear-gradient(135deg, rgba(255,255,255,.14) 0, rgba(255,255,255,.14) 2px, transparent 2px, transparent 14px);
+    }
+
+    .blog-thumb span {
+      position: relative;
+      font-family: "Manrope", sans-serif;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    .blog-thumb.b1 { background: linear-gradient(145deg, #14c8b8, #06312f); }
+    .blog-thumb.b2 { background: linear-gradient(145deg, #3b82f6, #0a1b33); }
+    .blog-thumb.b3 { background: linear-gradient(145deg, #8b5cf6, #1a0d3d); }
+
+    .blog-body {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+
+      padding: 24px;
+    }
+
+    .blog-meta {
+      margin-bottom: 10px;
+
+      color: #89919b;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .blog-body h4 {
+      font-family: "Manrope", sans-serif;
+      font-size: 20px;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .blog-body p {
+      color: var(--gray);
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .blog-link {
+      margin-top: auto;
+
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .blog-link.soon { color: #89919b; }
+
+    a.blog-link:hover { color: #0fa597; }
+
+    @media(max-width: 1000px) {
+      .blog-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media(max-width: 700px) {
+      .blog-grid { grid-template-columns: 1fr; }
+    }
+
+
+    /* ABOUT: PHOTO ON THE RIGHT */
+
+    @media(min-width: 1001px) {
+
+      .about-grid {
+        grid-template-columns: 1.2fr .8fr;
+      }
+
+      .about-grid .profile {
+        order: 2;
+      }
+
+    }
+
   </style>
 </head>
 
@@ -2039,6 +2583,10 @@
         </li>
 
         <li>
+          <a href="#blog">Blog</a>
+        </li>
+
+        <li>
           <a href="#process">Process</a>
         </li>
 
@@ -2061,17 +2609,99 @@
 
   <section class="hero" id="home">
 
+    <!-- MARKETING BACKGROUND (decorative) -->
+    <div class="hero-bg" aria-hidden="true">
+
+      <svg class="hb-grid" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="hbDots" width="28" height="28" patternUnits="userSpaceOnUse">
+            <circle cx="2" cy="2" r="1.4" fill="#0b1f3a" fill-opacity=".10"/>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#hbDots)"/>
+      </svg>
+
+      <svg class="hb-line" viewBox="0 0 1200 300" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="hbLg" x1="0" x2="1">
+            <stop offset="0" stop-color="#14c8b8" stop-opacity="0"/>
+            <stop offset=".5" stop-color="#14c8b8" stop-opacity=".55"/>
+            <stop offset="1" stop-color="#6bd400" stop-opacity=".8"/>
+          </linearGradient>
+          <linearGradient id="hbFill" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#14c8b8" stop-opacity=".16"/>
+            <stop offset="1" stop-color="#14c8b8" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <path d="M0 270 C120 255 180 240 260 225 S400 210 470 170 S620 150 700 120 S860 100 940 70 S1100 40 1200 10 L1200 300 L0 300 Z" fill="url(#hbFill)"/>
+        <path class="hb-draw" d="M0 270 C120 255 180 240 260 225 S400 210 470 170 S620 150 700 120 S860 100 940 70 S1100 40 1200 10" fill="none" stroke="url(#hbLg)" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+
+      <!-- bar chart -->
+      <svg class="hb-icon hb-i1" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="6" y="26" width="8" height="16" rx="2" fill="#3b82f6"/>
+        <rect x="20" y="16" width="8" height="26" rx="2" fill="#14c8b8"/>
+        <rect x="34" y="6" width="8" height="36" rx="2" fill="#8b5cf6"/>
+      </svg>
+
+      <!-- target -->
+      <svg class="hb-icon hb-i2" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="24" cy="24" r="19" stroke="#ff4d8d" stroke-width="4"/>
+        <circle cx="24" cy="24" r="11" stroke="#ff8a3d" stroke-width="4"/>
+        <circle cx="24" cy="24" r="4" fill="#ffc933"/>
+      </svg>
+
+      <!-- click cursor -->
+      <svg class="hb-icon hb-i3" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 6l26 14-11 3-4 11z" fill="#07111f" fill-opacity=".85"/>
+        <circle cx="36" cy="34" r="8" stroke="#14c8b8" stroke-width="3" stroke-dasharray="4 4"/>
+      </svg>
+
+      <!-- megaphone -->
+      <svg class="hb-icon hb-i4" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 20h8l16-9v26l-16-9H6z" fill="#8b5cf6"/>
+        <path d="M36 18c3 2 3 10 0 12" stroke="#ff4d8d" stroke-width="3" stroke-linecap="round"/>
+        <path d="M14 29l3 10h5l-3-10z" fill="#6d3fe0"/>
+      </svg>
+
+      <!-- trend arrow -->
+      <svg class="hb-icon hb-i5" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5 36l12-12 8 8 17-18" stroke="#6bd400" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M30 14h12v12" stroke="#6bd400" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+
+      <!-- percent badge -->
+      <svg class="hb-icon hb-i6" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="24" cy="24" r="20" fill="#ffc933"/>
+        <path d="M30 14L18 34" stroke="#07111f" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="17" cy="17" r="4" fill="#07111f"/>
+        <circle cx="31" cy="31" r="4" fill="#07111f"/>
+      </svg>
+
+      <!-- network nodes -->
+      <svg class="hb-icon hb-i7" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M24 24L8 10M24 24l18-6M24 24l-6 20M24 24l20 18" stroke="#3b82f6" stroke-opacity=".6" stroke-width="2.5"/>
+        <circle cx="24" cy="24" r="6" fill="#3b82f6"/>
+        <circle cx="8" cy="10" r="4" fill="#14c8b8"/>
+        <circle cx="42" cy="18" r="4" fill="#ff8a3d"/>
+        <circle cx="18" cy="44" r="4" fill="#ff4d8d"/>
+        <circle cx="44" cy="42" r="4" fill="#8b5cf6"/>
+      </svg>
+
+    </div>
+
+
     <div class="container hero-grid">
 
       <div class="reveal">
 
-        <div class="label">
-          Digital Marketing Expert
+        <div class="label hero-label">
+          <span id="heroTyped">AI-Powered Digital Marketer</span><span class="typed-caret" aria-hidden="true"></span>
         </div>
 
         <h1>
-          Turning clicks into
-          <span>real business growth.</span>
+          Turn clicks into
+          <span>customers.</span>
         </h1>
 
         <p class="hero-text">
@@ -2244,24 +2874,6 @@
   </section>
 
 
-  <!-- TRUST -->
-
-  <div class="trust">
-
-    <div class="container trust-row">
-
-      <span>Meta Ads</span>
-      <span>Google Ads</span>
-      <span>GA4</span>
-      <span>GTM</span>
-      <span>Meta Pixel</span>
-      <span>CAPI</span>
-
-    </div>
-
-  </div>
-
-
   <!-- =========================
        ABOUT
   ========================= -->
@@ -2274,8 +2886,8 @@
 
         <!-- ====== EKHANE TOMAR REAL PHOTO BOSHAO ====== -->
         <img
-          src="profile.jpg"
-          alt="Mamun Hossain — Digital Marketing Expert"
+          src="https://raw.githubusercontent.com/mamunpkbd/mamunpkbd/main/cqNompN%20-%20Imgur.png"
+          alt="Mamun Hossain — AI-Powered Digital Marketer"
           class="profile-photo"
         >
 
@@ -2286,7 +2898,7 @@
           </h3>
 
           <p>
-            Digital Marketing Expert
+            AI-Powered Digital Marketer
           </p>
 
         </div>
@@ -2305,7 +2917,7 @@
         </h2>
 
         <p>
-          I'm Mamun Hossain, a Digital Marketing Expert focused on
+          I'm Mamun Hossain, an AI-Powered Digital Marketer focused on
           performance marketing and conversion tracking.
         </p>
 
@@ -3009,6 +3621,42 @@
 
 
   <!-- =========================
+       BLOG
+  ========================= -->
+
+  <section id="blog">
+
+    <div class="container">
+
+      <div class="section-head reveal">
+
+        <div>
+
+          <div class="label">
+            Blog
+          </div>
+
+          <h2>
+            Insights & guides.
+          </h2>
+
+        </div>
+
+        <p>
+          Practical articles on tracking, analytics and paid advertising.
+          Replace these with your real posts.
+        </p>
+
+      </div>
+
+      <div class="blog-grid" id="blogGrid"></div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
        PROCESS
   ========================= -->
 
@@ -3275,13 +3923,18 @@
 
         <div class="field" id="servicesField">
           <span class="field-label">Services you need</span>
-          <div class="chips" id="cfServices">
-            <button type="button" class="chip" aria-pressed="false">Meta Ads</button>
-            <button type="button" class="chip" aria-pressed="false">GA4</button>
-            <button type="button" class="chip" aria-pressed="false">Google Tag Manager</button>
-            <button type="button" class="chip" aria-pressed="false">Meta Pixel &amp; CAPI</button>
-            <button type="button" class="chip" aria-pressed="false">CRO</button>
-            <button type="button" class="chip" aria-pressed="false">Reporting</button>
+          <div class="msel" id="cfServices">
+            <button type="button" class="msel-btn" id="mselBtn" aria-haspopup="listbox" aria-expanded="false">
+              <span class="msel-text" id="mselText">Select one or more</span>
+            </button>
+            <div class="msel-list" id="mselList" role="listbox" aria-multiselectable="true" hidden>
+              <div class="msel-opt" role="option" tabindex="0" aria-selected="false">Meta Ads</div>
+              <div class="msel-opt" role="option" tabindex="0" aria-selected="false">GA4</div>
+              <div class="msel-opt" role="option" tabindex="0" aria-selected="false">Google Tag Manager</div>
+              <div class="msel-opt" role="option" tabindex="0" aria-selected="false">Meta Pixel &amp; CAPI</div>
+              <div class="msel-opt" role="option" tabindex="0" aria-selected="false">CRO</div>
+              <div class="msel-opt" role="option" tabindex="0" aria-selected="false">Reporting</div>
+            </div>
           </div>
           <div class="field-error">Please select at least one service.</div>
         </div>
@@ -3326,7 +3979,7 @@
           </div>
 
           <p>
-            Digital Marketing Expert specializing in
+            AI-Powered Digital Marketer specializing in
             paid advertising, analytics and conversion tracking.
           </p>
 
@@ -3569,6 +4222,277 @@
     });
 
   
+  </script>
+
+
+  <script>
+
+    /* CONTACT FORM */
+
+    const FORM_ENDPOINT = "";
+    const CONTACT_EMAIL = "";
+
+    (function () {
+
+      const form = document.getElementById("contactForm");
+      if (!form) return;
+
+      const countries = ["Bangladesh","United States","United Kingdom","Canada","Australia","India","Pakistan","Nepal","Sri Lanka","United Arab Emirates","Saudi Arabia","Qatar","Kuwait","Oman","Bahrain","Malaysia","Singapore","Indonesia","Philippines","Thailand","Vietnam","Japan","South Korea","China","Hong Kong","New Zealand","Germany","France","Italy","Spain","Portugal","Netherlands","Belgium","Switzerland","Austria","Sweden","Norway","Denmark","Finland","Ireland","Poland","Turkey","Egypt","Nigeria","Kenya","South Africa","Brazil","Mexico","Argentina","Chile","Colombia","Other"];
+
+      const list = document.getElementById("countryList");
+      countries.forEach(c => {
+        const o = document.createElement("option");
+        o.value = c;
+        list.appendChild(o);
+      });
+
+      const el = {
+        name: document.getElementById("cfName"),
+        email: document.getElementById("cfEmail"),
+        country: document.getElementById("cfCountry"),
+        business: document.getElementById("cfBusiness"),
+        message: document.getElementById("cfMessage"),
+        chips: document.querySelectorAll("#cfServices .msel-opt"),
+        status: document.getElementById("cfStatus"),
+        hint: document.getElementById("emailHint"),
+        hintBtn: document.getElementById("emailHintBtn")
+      };
+
+      /* service chips */
+
+      const mselBtn = document.getElementById("mselBtn");
+      const mselList = document.getElementById("mselList");
+      const mselText = document.getElementById("mselText");
+
+      function updateServicesLabel() {
+        const picked = [...el.chips]
+          .filter(c => c.getAttribute("aria-selected") === "true")
+          .map(c => c.textContent.trim());
+        mselText.textContent = picked.length ? picked.join(", ") : "Select one or more";
+      }
+
+      function toggleList(open) {
+        mselList.hidden = !open;
+        mselBtn.setAttribute("aria-expanded", open ? "true" : "false");
+      }
+
+      mselBtn.addEventListener("click", () => toggleList(mselList.hidden));
+
+      el.chips.forEach(chip => {
+
+        const flip = () => {
+          const on = chip.getAttribute("aria-selected") === "true";
+          chip.setAttribute("aria-selected", on ? "false" : "true");
+          updateServicesLabel();
+          clearError(document.getElementById("servicesField"));
+        };
+
+        chip.addEventListener("click", flip);
+
+        chip.addEventListener("keydown", e => {
+          if (e.key === "Enter" || e.key === " ") { e.preventDefault(); flip(); }
+        });
+
+      });
+
+      document.addEventListener("click", e => {
+        if (!document.getElementById("cfServices").contains(e.target)) toggleList(false);
+      });
+
+      document.addEventListener("keydown", e => {
+        if (e.key === "Escape" && !mselList.hidden) { toggleList(false); mselBtn.focus(); }
+      });
+
+      /* "Did you mean?" email suggestion */
+
+      const typos = {
+        "gmial.com":"gmail.com","gmai.com":"gmail.com","gnail.com":"gmail.com","gamil.com":"gmail.com",
+        "gmail.co":"gmail.com","gmail.con":"gmail.com","gmail.cm":"gmail.com","gmaill.com":"gmail.com",
+        "yaho.com":"yahoo.com","yahooo.com":"yahoo.com","yahoo.con":"yahoo.com",
+        "hotmial.com":"hotmail.com","hotmail.con":"hotmail.com","hotmal.com":"hotmail.com",
+        "outlok.com":"outlook.com","outlook.con":"outlook.com"
+      };
+
+      let suggestion = "";
+
+      el.email.addEventListener("blur", () => {
+
+        const v = el.email.value.trim();
+        const at = v.lastIndexOf("@");
+
+        suggestion = "";
+        el.hint.style.display = "none";
+
+        if (at < 1) return;
+
+        const domain = v.slice(at + 1).toLowerCase();
+
+        if (typos[domain]) {
+          suggestion = v.slice(0, at + 1) + typos[domain];
+          el.hintBtn.textContent = suggestion;
+          el.hint.style.display = "block";
+        }
+
+      });
+
+      el.hintBtn.addEventListener("click", () => {
+        el.email.value = suggestion;
+        el.hint.style.display = "none";
+        clearError(el.email.closest(".field"));
+      });
+
+      /* validation */
+
+      function setError(field) { field.classList.add("invalid"); }
+      function clearError(field) { field.classList.remove("invalid"); }
+
+      [el.name, el.email, el.country, el.business, el.message].forEach(input => {
+        input.addEventListener("input", () => clearError(input.closest(".field")));
+        input.addEventListener("change", () => clearError(input.closest(".field")));
+      });
+
+      function selectedServices() {
+        return [...el.chips]
+          .filter(c => c.getAttribute("aria-selected") === "true")
+          .map(c => c.textContent.trim());
+      }
+
+      function validate() {
+
+        let ok = true;
+
+        const check = (input, cond) => {
+          if (!cond) { setError(input.closest(".field")); ok = false; }
+        };
+
+        check(el.name, el.name.value.trim().length >= 2);
+        check(el.email, /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(el.email.value.trim()));
+        check(el.country, el.country.value.trim().length >= 2);
+        check(el.business, el.business.value !== "");
+        check(el.message, el.message.value.trim().length >= 5);
+
+        if (selectedServices().length === 0) {
+          setError(document.getElementById("servicesField"));
+          ok = false;
+        }
+
+        return ok;
+
+      }
+
+      function showStatus(text, isError) {
+        el.status.textContent = text;
+        el.status.className = "cform-status show" + (isError ? " error" : "");
+      }
+
+      form.addEventListener("submit", async e => {
+
+        e.preventDefault();
+
+        if (!validate()) {
+          showStatus("Please fix the highlighted fields.", true);
+          return;
+        }
+
+        const data = {
+          name: el.name.value.trim(),
+          email: el.email.value.trim(),
+          country: el.country.value.trim(),
+          business: el.business.value,
+          services: selectedServices().join(", "),
+          message: el.message.value.trim()
+        };
+
+        if (FORM_ENDPOINT) {
+
+          try {
+
+            const res = await fetch(FORM_ENDPOINT, {
+              method: "POST",
+              headers: { "Content-Type": "application/json", "Accept": "application/json" },
+              body: JSON.stringify(data)
+            });
+
+            if (!res.ok) throw new Error("bad response");
+
+            form.reset();
+            el.chips.forEach(c => c.setAttribute("aria-selected", "false"));
+            updateServicesLabel();
+            showStatus("Thank you! Your message has been sent. I will reply soon.", false);
+
+          } catch (err) {
+            showStatus("Could not send the message. Please try again or book a call below.", true);
+          }
+
+          return;
+
+        }
+
+        if (CONTACT_EMAIL) {
+
+          const body =
+            "Name: " + data.name + "\n" +
+            "Email: " + data.email + "\n" +
+            "Country: " + data.country + "\n" +
+            "Business: " + data.business + "\n" +
+            "Services: " + data.services + "\n\n" +
+            data.message;
+
+          window.location.href =
+            "mailto:" + CONTACT_EMAIL +
+            "?subject=" + encodeURIComponent("New project enquiry from " + data.name) +
+            "&body=" + encodeURIComponent(body);
+
+          showStatus("Your email app should open with the message ready. Press send there to finish.", false);
+
+          return;
+
+        }
+
+        showStatus("Form is not connected yet. Please book a call below.", true);
+
+      });
+
+    })();
+
+  </script>
+
+
+  <script>
+
+    /* CONTACT TABS */
+
+    (function () {
+
+      const tabs = {
+        book:    { tab: document.getElementById("tabBook"),    panel: document.getElementById("panelBook") },
+        message: { tab: document.getElementById("tabMessage"), panel: document.getElementById("panelMessage") }
+      };
+
+      function show(key) {
+        Object.keys(tabs).forEach(k => {
+          const on = k === key;
+          tabs[k].tab.classList.toggle("active", on);
+          tabs[k].tab.setAttribute("aria-selected", on ? "true" : "false");
+          tabs[k].panel.classList.toggle("active", on);
+        });
+      }
+
+      tabs.book.tab.addEventListener("click", () => show("book"));
+      tabs.message.tab.addEventListener("click", () => show("message"));
+
+      /* "Book a Call" / "Let's Talk" links open the booking tab */
+      document.querySelectorAll('a[href="#booking"]').forEach(a => {
+        a.addEventListener("click", () => show("book"));
+      });
+
+    })();
+
+  </script>
+
+
+  <script>
+
     /* SERVICE POPUP */
 
     const SERVICES = {
@@ -3702,250 +4626,14 @@
 
   <script>
 
-    /* CONTACT FORM
-       Form data pathanor jonno ekta option set koro:
-       1) FORM_ENDPOINT = Formspree / Getform / Web3Forms-er URL  (recommended)
-       2) CONTACT_EMAIL = nijer email  (endpoint na thakle email app khulbe)
-    */
-
-    const FORM_ENDPOINT = "";
-    const CONTACT_EMAIL = "";
-
-    (function () {
-
-      const form = document.getElementById("contactForm");
-      if (!form) return;
-
-      const countries = ["Bangladesh","United States","United Kingdom","Canada","Australia","India","Pakistan","Nepal","Sri Lanka","United Arab Emirates","Saudi Arabia","Qatar","Kuwait","Oman","Bahrain","Malaysia","Singapore","Indonesia","Philippines","Thailand","Vietnam","Japan","South Korea","China","Hong Kong","New Zealand","Germany","France","Italy","Spain","Portugal","Netherlands","Belgium","Switzerland","Austria","Sweden","Norway","Denmark","Finland","Ireland","Poland","Turkey","Egypt","Nigeria","Kenya","South Africa","Brazil","Mexico","Argentina","Chile","Colombia","Other"];
-
-      const list = document.getElementById("countryList");
-      countries.forEach(c => {
-        const o = document.createElement("option");
-        o.value = c;
-        list.appendChild(o);
-      });
-
-      const el = {
-        name: document.getElementById("cfName"),
-        email: document.getElementById("cfEmail"),
-        country: document.getElementById("cfCountry"),
-        business: document.getElementById("cfBusiness"),
-        message: document.getElementById("cfMessage"),
-        chips: document.querySelectorAll("#cfServices .chip"),
-        status: document.getElementById("cfStatus"),
-        hint: document.getElementById("emailHint"),
-        hintBtn: document.getElementById("emailHintBtn")
-      };
-
-      /* service chips */
-
-      el.chips.forEach(chip => {
-        chip.addEventListener("click", () => {
-          const on = chip.getAttribute("aria-pressed") === "true";
-          chip.setAttribute("aria-pressed", on ? "false" : "true");
-          clearError(document.getElementById("servicesField"));
-        });
-      });
-
-      /* "Did you mean?" email suggestion */
-
-      const typos = {
-        "gmial.com":"gmail.com","gmai.com":"gmail.com","gnail.com":"gmail.com","gamil.com":"gmail.com",
-        "gmail.co":"gmail.com","gmail.con":"gmail.com","gmail.cm":"gmail.com","gmaill.com":"gmail.com",
-        "yaho.com":"yahoo.com","yahooo.com":"yahoo.com","yahoo.con":"yahoo.com",
-        "hotmial.com":"hotmail.com","hotmail.con":"hotmail.com","hotmal.com":"hotmail.com",
-        "outlok.com":"outlook.com","outlook.con":"outlook.com"
-      };
-
-      let suggestion = "";
-
-      el.email.addEventListener("blur", () => {
-
-        const v = el.email.value.trim();
-        const at = v.lastIndexOf("@");
-
-        suggestion = "";
-        el.hint.style.display = "none";
-
-        if (at < 1) return;
-
-        const domain = v.slice(at + 1).toLowerCase();
-
-        if (typos[domain]) {
-          suggestion = v.slice(0, at + 1) + typos[domain];
-          el.hintBtn.textContent = suggestion;
-          el.hint.style.display = "block";
-        }
-
-      });
-
-      el.hintBtn.addEventListener("click", () => {
-        el.email.value = suggestion;
-        el.hint.style.display = "none";
-        clearError(el.email.closest(".field"));
-      });
-
-      /* validation */
-
-      function setError(field) { field.classList.add("invalid"); }
-      function clearError(field) { field.classList.remove("invalid"); }
-
-      [el.name, el.email, el.country, el.business, el.message].forEach(input => {
-        input.addEventListener("input", () => clearError(input.closest(".field")));
-        input.addEventListener("change", () => clearError(input.closest(".field")));
-      });
-
-      function selectedServices() {
-        return [...el.chips]
-          .filter(c => c.getAttribute("aria-pressed") === "true")
-          .map(c => c.textContent.trim());
-      }
-
-      function validate() {
-
-        let ok = true;
-
-        const check = (input, cond) => {
-          if (!cond) { setError(input.closest(".field")); ok = false; }
-        };
-
-        check(el.name, el.name.value.trim().length >= 2);
-        check(el.email, /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(el.email.value.trim()));
-        check(el.country, el.country.value.trim().length >= 2);
-        check(el.business, el.business.value !== "");
-        check(el.message, el.message.value.trim().length >= 5);
-
-        if (selectedServices().length === 0) {
-          setError(document.getElementById("servicesField"));
-          ok = false;
-        }
-
-        return ok;
-
-      }
-
-      function showStatus(text, isError) {
-        el.status.textContent = text;
-        el.status.className = "cform-status show" + (isError ? " error" : "");
-      }
-
-      form.addEventListener("submit", async e => {
-
-        e.preventDefault();
-
-        if (!validate()) {
-          showStatus("Please fix the highlighted fields.", true);
-          return;
-        }
-
-        const data = {
-          name: el.name.value.trim(),
-          email: el.email.value.trim(),
-          country: el.country.value.trim(),
-          business: el.business.value,
-          services: selectedServices().join(", "),
-          message: el.message.value.trim()
-        };
-
-        if (FORM_ENDPOINT) {
-
-          try {
-
-            const res = await fetch(FORM_ENDPOINT, {
-              method: "POST",
-              headers: { "Content-Type": "application/json", "Accept": "application/json" },
-              body: JSON.stringify(data)
-            });
-
-            if (!res.ok) throw new Error("bad response");
-
-            form.reset();
-            el.chips.forEach(c => c.setAttribute("aria-pressed", "false"));
-            showStatus("Thank you! Your message has been sent. I will reply soon.", false);
-
-          } catch (err) {
-            showStatus("Could not send the message. Please try again or book a call below.", true);
-          }
-
-          return;
-
-        }
-
-        if (CONTACT_EMAIL) {
-
-          const body =
-            "Name: " + data.name + "\n" +
-            "Email: " + data.email + "\n" +
-            "Country: " + data.country + "\n" +
-            "Business: " + data.business + "\n" +
-            "Services: " + data.services + "\n\n" +
-            data.message;
-
-          window.location.href =
-            "mailto:" + CONTACT_EMAIL +
-            "?subject=" + encodeURIComponent("New project enquiry from " + data.name) +
-            "&body=" + encodeURIComponent(body);
-
-          showStatus("Your email app should open with the message ready. Press send there to finish.", false);
-
-          return;
-
-        }
-
-        showStatus("Form is not connected yet. Please book a call below.", true);
-
-      });
-
-    })();
-
-  </script>
-
-
-  <script>
-
-    /* CONTACT TABS */
-
-    (function () {
-
-      const tabs = {
-        book:    { tab: document.getElementById("tabBook"),    panel: document.getElementById("panelBook") },
-        message: { tab: document.getElementById("tabMessage"), panel: document.getElementById("panelMessage") }
-      };
-
-      function show(key) {
-        Object.keys(tabs).forEach(k => {
-          const on = k === key;
-          tabs[k].tab.classList.toggle("active", on);
-          tabs[k].tab.setAttribute("aria-selected", on ? "true" : "false");
-          tabs[k].panel.classList.toggle("active", on);
-        });
-      }
-
-      tabs.book.tab.addEventListener("click", () => show("book"));
-      tabs.message.tab.addEventListener("click", () => show("message"));
-
-      /* "Book a Call" / "Let's Talk" links open the booking tab */
-      document.querySelectorAll('a[href="#booking"]').forEach(a => {
-        a.addEventListener("click", () => show("book"));
-      });
-
-    })();
-
-  </script>
-
-
-  <script>
-
     /* PORTFOLIO POPUP */
 
     const GITHUB_BASE = "https://raw.githubusercontent.com/mamunpkbd/mamunpkbd/main/";
     
-    // ১ থেকে ১৬ পর্যন্ত Overview ইমেজের লিংক
     const overviewImgs = Array.from({ length: 16 }, (_, i) => 
       `${GITHUB_BASE}ecom_data_analysis_overview_${String(i + 1).padStart(2, '0')}.jpg`
     );
 
-    // ১ থেকে ১৫ পর্যন্ত Decision ইমেজের লিংক (এখানে decison ব্যবহার করা হয়েছে)
     const decisionImgs = Array.from({ length: 15 }, (_, i) => 
       `${GITHUB_BASE}ecom_data_analysis_decison_${String(i + 1).padStart(2, '0')}.jpg`
     );
@@ -4052,7 +4740,6 @@
               img.alt = sl.label;
               img.loading = "lazy";
               
-              // ইমেজ লোড না হলে "Image not found" দেখাবে
               img.onerror = function() {
                 media.innerHTML = '<span style="font-size:12px; color:#d64545; font-weight:bold;">Image not found</span>';
               };
@@ -4142,6 +4829,148 @@
 
       document.addEventListener("keydown", e => {
         if (e.key === "Escape" && box.classList.contains("open")) closeProject();
+      });
+
+    })();
+
+  </script>
+
+  <script>
+
+    /* HERO LABEL TYPING ANIMATION */
+
+    (function () {
+
+      const target = document.getElementById("heroTyped");
+
+      if (!target) return;
+
+      if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+      const phrases = [
+        "AI-Powered Digital Marketer",
+        "Performance Marketing Expert",
+        "Tracking & Analytics Specialist"
+      ];
+
+      let phrase = 0;
+      let chars = 0;
+      let deleting = false;
+
+      function tick() {
+
+        const text = phrases[phrase];
+
+        chars += deleting ? -1 : 1;
+
+        target.textContent = text.slice(0, chars);
+
+        let delay = deleting ? 35 : 70;
+
+        if (!deleting && chars === text.length) {
+          delay = 2000;
+          deleting = true;
+        } else if (deleting && chars === 0) {
+          deleting = false;
+          phrase = (phrase + 1) % phrases.length;
+          delay = 400;
+        }
+
+        setTimeout(tick, delay);
+
+      }
+
+      /* start by showing the full first phrase, then delete and cycle */
+      target.textContent = phrases[0];
+      chars = phrases[0].length;
+      deleting = true;
+      setTimeout(tick, 2200);
+
+    })();
+
+  </script>
+
+  <script>
+
+    /* BLOG */
+
+    const BLOG_POSTS = [
+      {
+        tag: "Analytics",
+        title: "How to set up GA4 conversion tracking",
+        excerpt: "A simple step-by-step guide to tracking the actions that matter to your business.",
+        meta: "5 min read",
+        url: ""
+      },
+      {
+        tag: "Tracking",
+        title: "Why Conversion API matters for Meta Ads",
+        excerpt: "What server-side tracking changes and how it improves measurement quality.",
+        meta: "6 min read",
+        url: ""
+      },
+      {
+        tag: "GTM",
+        title: "Google Tag Manager dataLayer basics",
+        excerpt: "Plan clean events once and use them across analytics and advertising platforms.",
+        meta: "7 min read",
+        url: ""
+      }
+    ];
+
+    (function () {
+
+      const grid = document.getElementById("blogGrid");
+
+      if (!grid) return;
+
+      BLOG_POSTS.forEach((post, i) => {
+
+        const card = document.createElement("article");
+        card.className = "blog-card reveal";
+
+        const thumb = document.createElement("div");
+        thumb.className = "blog-thumb b" + ((i % 3) + 1);
+
+        const tag = document.createElement("span");
+        tag.textContent = post.tag;
+        thumb.appendChild(tag);
+
+        const body = document.createElement("div");
+        body.className = "blog-body";
+
+        const meta = document.createElement("div");
+        meta.className = "blog-meta";
+        meta.textContent = post.meta;
+
+        const h = document.createElement("h4");
+        h.textContent = post.title;
+
+        const p = document.createElement("p");
+        p.textContent = post.excerpt;
+
+        let link;
+
+        if (post.url) {
+          link = document.createElement("a");
+          link.href = post.url;
+          link.target = "_blank";
+          link.rel = "noopener";
+          link.className = "blog-link";
+          link.textContent = "Read article \u2192";
+        } else {
+          link = document.createElement("span");
+          link.className = "blog-link soon";
+          link.textContent = "Coming soon";
+        }
+
+        body.append(meta, h, p, link);
+        card.append(thumb, body);
+        grid.appendChild(card);
+
+        if (typeof observer !== "undefined") observer.observe(card);
+        else card.classList.add("show");
+
       });
 
     })();
